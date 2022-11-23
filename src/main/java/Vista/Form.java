@@ -1157,6 +1157,7 @@ public class Form extends javax.swing.JFrame {
             if (verificarEmpleado(txtCuit.getText())) {
                 Controlador control = new Controlador();
             control.crearUsuario(emp);
+            JOptionPane.showMessageDialog(null, "El empleado fue agregado con exito ");
            mostrarTabla("%");
            limpiar();
             }else{
@@ -1211,25 +1212,26 @@ public class Form extends javax.swing.JFrame {
         SimpleDateFormat dFormat = new SimpleDateFormat("dd/MM/yyyy");
         int i=0;
         String val="%";
+        int con=0;
           for(Proyecto pro: obj.listarProyectos(val)){
               //if (pro.getFechaIni() >= dFormat.parse(fecha1) && pro.getFechaFin() <= dFormat.parse(fecha2)) {
                   if (fecha1.before(pro.getFechaIni()) && fecha2.after(pro.getFechaFin())) {
-
-                      modelo.setValueAt(pro.getCodProyecto(), i, 0);
-            modelo.setValueAt(pro.getNombre(), i, 1);
+                      
+                      modelo.setValueAt(pro.getCodProyecto(), con, 0);
+            modelo.setValueAt(pro.getNombre(), con, 1);
             
             
             String fechaIni = dFormat.format(pro.getFechaIni());
-            modelo.setValueAt(fechaIni, i, 2);
+            modelo.setValueAt(fechaIni, con, 2);
             String fechaFin = dFormat.format(pro.getFechaFin());
-            modelo.setValueAt(fechaFin, i, 3);
-            modelo.setValueAt(pro.getMontoPres(), i, 4);
+            modelo.setValueAt(fechaFin, con, 3);
+            modelo.setValueAt(pro.getMontoPres(), con, 4);
             
-            modelo.setValueAt(btn1, i, 5);
-            modelo.setValueAt(btn2, i, 6);
-            modelo.setValueAt(btn3, i, 7);
+            modelo.setValueAt(btn1, con, 5);
+            modelo.setValueAt(btn2, con, 6);
+            modelo.setValueAt(btn3, con, 7);
             monto+=pro.getMontoPres();
-                      
+               con++;       
                       
               }
               
@@ -1267,6 +1269,8 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanelCentral.setSelectedIndex(1);
         mostrarTablaEmpleadosP("%");
+        mostrarTablaProyecto("%");
+        limpiarPro();
     }//GEN-LAST:event_jPanelMenu3MouseClicked
 
     private void jPanelMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMenu1MouseExited
@@ -1325,6 +1329,7 @@ public class Form extends javax.swing.JFrame {
                    int fila = tablaEmpleados.getSelectedRow();
                    int id = Integer.parseInt(this.tablaEmpleados.getValueAt(fila, 0).toString());
                    eliminar(id);
+                   JOptionPane.showMessageDialog(null, "El empleado fue eliminado");
                 
                }
             }
@@ -1373,8 +1378,13 @@ public class Form extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        Double sueld = Double.parseDouble(txtSueldMay.getText());
+        try{
+            Double sueld = Double.parseDouble(txtSueldMay.getText());
         mostrarTablaSueldo(sueld);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error debe ingresar valores numericos --> "+e);
+        }
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarMousePressed
@@ -1407,6 +1417,7 @@ public class Form extends javax.swing.JFrame {
             
             Controlador control = new Controlador();
             control.crearProyecto(pro);
+            JOptionPane.showMessageDialog(null, "El proyecto fue agregado con exito ");
             mostrarTablaProyecto("%");
            limpiarPro();
            
@@ -1455,8 +1466,13 @@ public class Form extends javax.swing.JFrame {
                if(boton.getName().equals("del")){
                    int fila = tablaProyectos.getSelectedRow();
                    int cod = Integer.parseInt(this.tablaProyectos.getValueAt(fila, 0).toString());
-                   eliminarPro(cod);
-                
+                   
+                   //if (verificarEmpleadoEnProyecto(cod)) {
+                       eliminarPro(cod);
+                       JOptionPane.showMessageDialog(null, "El proyecto fue eliminado con exito ");
+                  // } else{
+                  //     JOptionPane.showMessageDialog(null, "El Proyecto tiene empleados ");
+                  // }
                }
             }
         }
@@ -1488,7 +1504,7 @@ public class Form extends javax.swing.JFrame {
             
             Controlador control = new Controlador();
             control.editarProyecto(pro);
-            
+            JOptionPane.showMessageDialog(null, "El empleado fue agregado al proyecto con exito ");
             
             
             
@@ -1525,6 +1541,7 @@ public class Form extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarEmpActionPerformed
 
+    
     public void listarEmpleadosP(int cod, Double monto){
         tablaEmpleadosP.setDefaultRenderer(Object.class, new Render());
          
@@ -1610,14 +1627,12 @@ public class Form extends javax.swing.JFrame {
             String fecha = dFormat.format(txtFecha.getDate());
             emp.setFechaNacimiento(new Date(fecha));
           
-            if (verificarEmpleado(txtCuit.getText())) {
-                Controlador control = new Controlador();
+            Controlador control = new Controlador();
             control.editarUsuario(emp);
+            JOptionPane.showMessageDialog(null, "El empleado fue modificado con exito ");
            mostrarTabla("%");
            limpiar();
-            }else{
-                JOptionPane.showMessageDialog(null, "El cuit ya esta en uso");
-            }
+            
             
             
             
@@ -1658,7 +1673,7 @@ public class Form extends javax.swing.JFrame {
             
             Controlador control = new Controlador();
             control.editarProyecto(pro);
-            
+            JOptionPane.showMessageDialog(null, "El empleado fue eliminado del proyecto ");
             
             EmpleadoJpaController obj = new EmpleadoJpaController();
             String cuit=txtEmpSelLeg.getText();
@@ -1723,6 +1738,8 @@ public class Form extends javax.swing.JFrame {
         txtMonto.setText("");
         txtFechaIni.setDate(new Date());
         txtFechaFin.setDate(new Date());
+        txtEmpSelLeg.setText("");
+        txtEmpSelNom.setText("");
     }
     
     
@@ -1799,6 +1816,28 @@ public class Form extends javax.swing.JFrame {
         }
         return resp;
     }
+    
+    public boolean verificarEmpleadoEnProyecto(int cod){
+        boolean resp=true;
+        tablaEmpleados.setDefaultRenderer(Object.class, new Render());
+    
+        EmpleadoJpaController obj = new EmpleadoJpaController();
+
+        String val="%";
+        int cont=0;
+          for(Empleado emp: obj.listarEmpleados(val)){
+            
+              if (emp.getProyecto().getCodProyecto() == cod) {
+                  resp=false;
+                  break;
+              }
+
+        }
+        return resp;
+    }
+    
+    
+    
     private void mostrarTablaEmpleadosP(String val){
 
          tablaEmpleados.setDefaultRenderer(Object.class, new Render());
@@ -1814,11 +1853,12 @@ public class Form extends javax.swing.JFrame {
             }
         };
         int i=0;
+        int cont=0;
           for(Empleado emp: obj.listarEmpleados(val)){
-            int cont=0;
+            
               if (emp.getProyecto() == null) {
-                  modelo.setValueAt(emp.getCuit(), i, 0);
-                  modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
+                  modelo.setValueAt(emp.getCuit(), cont, 0);
+                  modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), cont, 1);
                   cont++;
               }else{
                   
