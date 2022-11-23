@@ -105,7 +105,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="panel1" min="-2" pref="889" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -533,7 +533,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="655" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabel19" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -818,9 +818,9 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="lblNombre7" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtEmpSelLeg" min="-2" pref="71" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblNombre7" max="32767" attributes="0"/>
+                                                      <Component id="txtEmpSelLeg" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -831,11 +831,11 @@
                                                       <Component id="txtEmpSelNom" alignment="1" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
                                                   <Component id="btnAgregarEmp" min="-2" pref="113" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="btnEliminarEmp" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1099,6 +1099,10 @@
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                     <Property name="name" type="java.lang.String" value="txtBuscar" noResource="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtBuscarProyectoMousePressed"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarProyectoKeyReleased"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAgregarProyecto">
                   <Properties>
@@ -1369,6 +1373,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="txtCuit" noResource="true"/>
                   </Properties>
                 </Component>
@@ -1380,6 +1385,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="txtCuit" noResource="true"/>
                   </Properties>
                 </Component>

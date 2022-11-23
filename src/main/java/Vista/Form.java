@@ -7,9 +7,9 @@ package Vista;
 
 import Entidades.Empleado;
 import Entidades.Proyecto;
-import Persistencia.Controlador;
-import Persistencia.EmpleadoJpaController;
-import Persistencia.ProyectoJpaController;
+import Controlador.Controlador;
+import Controlador.EmpleadoJpaController;
+import Controlador.ProyectoJpaController;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
@@ -378,7 +378,7 @@ public class Form extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 655, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -538,6 +538,16 @@ public class Form extends javax.swing.JFrame {
         txtBuscarProyecto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtBuscarProyecto.setText("Buscar");
         txtBuscarProyecto.setName("txtBuscar"); // NOI18N
+        txtBuscarProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtBuscarProyectoMousePressed(evt);
+            }
+        });
+        txtBuscarProyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarProyectoKeyReleased(evt);
+            }
+        });
 
         btnAgregarProyecto.setBackground(new java.awt.Color(0, 153, 153));
         btnAgregarProyecto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -669,10 +679,12 @@ public class Form extends javax.swing.JFrame {
 
         txtEmpSelLeg.setBackground(new java.awt.Color(228, 252, 255));
         txtEmpSelLeg.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtEmpSelLeg.setEnabled(false);
         txtEmpSelLeg.setName("txtCuit"); // NOI18N
 
         txtEmpSelNom.setBackground(new java.awt.Color(228, 252, 255));
         txtEmpSelNom.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtEmpSelNom.setEnabled(false);
         txtEmpSelNom.setName("txtCuit"); // NOI18N
 
         lblNombre14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -707,9 +719,9 @@ public class Form extends javax.swing.JFrame {
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblNombre7)
-                                            .addComponent(txtEmpSelLeg, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblNombre7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtEmpSelLeg))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel11Layout.createSequentialGroup()
@@ -717,10 +729,10 @@ public class Form extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addComponent(txtEmpSelNom, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
                                         .addComponent(btnAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1117,7 +1129,7 @@ public class Form extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 889, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1137,16 +1149,20 @@ public class Form extends javax.swing.JFrame {
             emp.setApellidos(txtApellidoEmpleado.getText());
             emp.setCuit(txtCuit.getText());
             emp.setSueldo(Double.parseDouble(txtSueldo.getText()));
-            
+            emp.setProyecto(null);
             SimpleDateFormat dFormat = new SimpleDateFormat("dd/MM/yyyy");
             String fecha = dFormat.format(txtFecha.getDate());
             emp.setFechaNacimiento(new Date(fecha));
           
-            
-            Controlador control = new Controlador();
+            if (verificarEmpleado(txtCuit.getText())) {
+                Controlador control = new Controlador();
             control.crearUsuario(emp);
            mostrarTabla("%");
            limpiar();
+            }else{
+                JOptionPane.showMessageDialog(null, "El cuit ya esta en uso");
+            }
+            
            
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Error debe ingresar valores numericos --> "+e);
@@ -1250,6 +1266,7 @@ public class Form extends javax.swing.JFrame {
     private void jPanelMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMenu3MouseClicked
         // TODO add your handling code here:
         jPanelCentral.setSelectedIndex(1);
+        mostrarTablaEmpleadosP("%");
     }//GEN-LAST:event_jPanelMenu3MouseClicked
 
     private void jPanelMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMenu1MouseExited
@@ -1394,7 +1411,7 @@ public class Form extends javax.swing.JFrame {
            limpiarPro();
            
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Error: "+e);
+            JOptionPane.showMessageDialog(null, "Error debe ingresar valores numericos --> "+e);
         }
         
     }//GEN-LAST:event_btnAgregarProyectoActionPerformed
@@ -1403,8 +1420,8 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
         int column = tablaProyectos.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY()/tablaProyectos.getRowHeight();
-        
-        if (row < tablaProyectos.getRowCount() && row >= 0 && column < tablaProyectos.getColumnCount() && column >= 0){
+        try{
+            if (row < tablaProyectos.getRowCount() && row >= 0 && column < tablaProyectos.getColumnCount() && column >= 0){
             Object value = tablaProyectos.getValueAt(row, column);
             if(value instanceof JButton){
                ((JButton)value).doClick();
@@ -1443,6 +1460,10 @@ public class Form extends javax.swing.JFrame {
                }
             }
         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error  --> "+e);
+        }
+        
     }                                           
 
                                          
@@ -1488,6 +1509,7 @@ public class Form extends javax.swing.JFrame {
             emp.getSueldo();
             emp.setProyecto(pro);
             control.editarUsuario(emp);
+            break;
             //listaEmpleado.add(emp);
             //pro.setEmpleado(listaEmpleado.add(emp));
         }
@@ -1498,7 +1520,7 @@ public class Form extends javax.swing.JFrame {
            limpiarPro();
            txtEmpSelLeg.setText("");
            txtEmpSelNom.setText("");
-        }catch(NumberFormatException e){
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
         }
     }//GEN-LAST:event_btnAgregarEmpActionPerformed
@@ -1506,7 +1528,8 @@ public class Form extends javax.swing.JFrame {
     public void listarEmpleadosP(int cod, Double monto){
         tablaEmpleadosP.setDefaultRenderer(Object.class, new Render());
          
-         Object[] nombres = {"Legajo","Empleados","Monto"};
+        try{
+            Object[] nombres = {"Legajo","Empleados","Monto"};
         TableModel modelo = new DefaultTableModel(nombres, 45);
        
         EmpleadoJpaController obj = new EmpleadoJpaController()
@@ -1523,16 +1546,14 @@ public class Form extends javax.swing.JFrame {
         for(Empleado emp: obj.listarEmpleados(val)){
               if (emp.getProyecto() !=  null) {
                   if (emp.getProyecto().getCodProyecto() == cod) {
-                  modelo.setValueAt(emp.getNdeLegajo(), i, 0);
-                  modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
-                  modelo.setValueAt(monInd, i, 2);
-                  
+                  modelo.setValueAt(emp.getNdeLegajo(), can, 0);
+                  modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), can, 1);
+                  modelo.setValueAt(monInd, can, 2);
                   can++;
               }else{
                  // modelo.setValueAt(emp.getApellidos(), i, 0);
               }
               }
-              
 
             i++; 
         }
@@ -1540,10 +1561,16 @@ public class Form extends javax.swing.JFrame {
         String ca =String.valueOf(can);
         lblCantidadEP.setText(ca);
         tablaEmpleadosP.setModel(modelo);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error  --> "+e);
+        }
+        
     }
     
     public Double calcularMontoInd(int cod,Double monto){
+        
         Double montoInd=0d;
+        try{
         EmpleadoJpaController obj = new EmpleadoJpaController();
 
         String val="%";
@@ -1558,9 +1585,13 @@ public class Form extends javax.swing.JFrame {
         }
         
         montoInd=monto/contEmp;
-        
-        
-        return montoInd;
+
+        }catch(ArithmeticException e){
+            JOptionPane.showMessageDialog(null, "Error  --> "+e);
+        }
+        finally{
+            return montoInd;
+        }
     }
     
     
@@ -1579,14 +1610,21 @@ public class Form extends javax.swing.JFrame {
             String fecha = dFormat.format(txtFecha.getDate());
             emp.setFechaNacimiento(new Date(fecha));
           
-            
-            Controlador control = new Controlador();
+            if (verificarEmpleado(txtCuit.getText())) {
+                Controlador control = new Controlador();
             control.editarUsuario(emp);
            mostrarTabla("%");
            limpiar();
+            }else{
+                JOptionPane.showMessageDialog(null, "El cuit ya esta en uso");
+            }
+            
+            
+            
+            
            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error: "+e);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error debe ingresar valores numericos --> "+e);
         }
     }//GEN-LAST:event_btnEditarEmpActionPerformed
 
@@ -1646,7 +1684,7 @@ public class Form extends javax.swing.JFrame {
            limpiarPro();
            txtEmpSelLeg.setText("");
            txtEmpSelNom.setText("");
-        }catch(NumberFormatException e){
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
         }
     }//GEN-LAST:event_btnEliminarEmpActionPerformed
@@ -1664,6 +1702,18 @@ public class Form extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_tablaEmpleadosPMouseClicked
+
+    private void txtBuscarProyectoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarProyectoKeyReleased
+        // TODO add your handling code here:
+       String ap=txtBuscarProyecto.getText();
+        mostrarTablaProyecto(ap);
+    }//GEN-LAST:event_txtBuscarProyectoKeyReleased
+
+    private void txtBuscarProyectoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarProyectoMousePressed
+        // TODO add your handling code here:
+        txtBuscarProyecto.setText("");//borra  "Tamaño"
+        txtBuscarProyecto.setForeground(Color.black);
+    }//GEN-LAST:event_txtBuscarProyectoMousePressed
    
     
     
@@ -1728,6 +1778,27 @@ public class Form extends javax.swing.JFrame {
         tablaEmpleados.setModel(modelo);
     }
     
+    
+    public boolean verificarEmpleado(String cuit){
+        boolean resp=true;
+        tablaEmpleados.setDefaultRenderer(Object.class, new Render());
+
+       
+        EmpleadoJpaController obj = new EmpleadoJpaController();
+        
+
+        String val="%";
+ 
+          for(Empleado emp: obj.listarEmpleados(val)){
+            int cont=0;
+              if (emp.getCuit().equals(cuit)) {
+                  resp=false;
+                  break;
+              }
+
+        }
+        return resp;
+    }
     private void mostrarTablaEmpleadosP(String val){
 
          tablaEmpleados.setDefaultRenderer(Object.class, new Render());
@@ -1744,12 +1815,13 @@ public class Form extends javax.swing.JFrame {
         };
         int i=0;
           for(Empleado emp: obj.listarEmpleados(val)){
-            
+            int cont=0;
               if (emp.getProyecto() == null) {
                   modelo.setValueAt(emp.getCuit(), i, 0);
                   modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
+                  cont++;
               }else{
-                  //modelo.setValueAt(emp.getApellidos(), i, 0);
+                  
               }
 
             i++; 
