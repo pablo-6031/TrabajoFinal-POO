@@ -1,4 +1,4 @@
-package Entidades;
+package Modelo;
 
 public class Main {
 

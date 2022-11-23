@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Entidades.Proyecto;
+import Modelo.Proyecto;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.Date;

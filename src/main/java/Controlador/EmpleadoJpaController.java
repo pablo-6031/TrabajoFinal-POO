@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Entidades.Empleado;
+import Modelo.Empleado;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.sql.PreparedStatement;
@@ -174,7 +174,8 @@ public class EmpleadoJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             
-            String jpql = "SELECT e FROM Empleado e WHERE e.apellidos LIKE '%"+val+"%' OR e.cuit LIKE '%"+val+"%'";
+            //String jpql = "SELECT e FROM Empleado e WHERE e.apellidos LIKE '%"+val+"%' OR e.cuit LIKE '%"+val+"%' ";
+            String jpql = "SELECT e FROM Empleado e WHERE e.apellidos LIKE '%"+val+"%' OR e.cuit LIKE '%"+val+"%' ORDER BY e.apellidos ";
             Query q = em.createQuery(jpql);
 
             return q.getResultList();

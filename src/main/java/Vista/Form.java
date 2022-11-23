@@ -5,8 +5,8 @@
  */
 package Vista;
 
-import Entidades.Empleado;
-import Entidades.Proyecto;
+import Modelo.Empleado;
+import Modelo.Proyecto;
 import Controlador.Controlador;
 import Controlador.EmpleadoJpaController;
 import Controlador.ProyectoJpaController;
@@ -83,6 +83,7 @@ public class Form extends javax.swing.JFrame {
         jPanel20 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         lblMenu1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -354,6 +355,9 @@ public class Form extends javax.swing.JFrame {
         jPanelMenu1.add(lblMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 13, -1, 30));
 
         panel2.add(jPanelMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 200, 50));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\PABLO\\Documents\\NetBeansProjects\\TpFinal\\imagenes\\la quiaca.png")); // NOI18N
+        panel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 140, 180));
 
         panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 570));
 
@@ -2058,7 +2062,8 @@ public class Form extends javax.swing.JFrame {
         for(Empleado emp: obj.listarEmpleados("%")){
             String fecha = dFormat.format(emp.getFechaNacimiento());
             long edad = obj.calcularEdad(fecha);
-            if (edad>may) {
+            if (edad>=may) {
+                may=(int)edad;
                mayor =  emp.getCuit();
             }
             j++; 
@@ -2091,6 +2096,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

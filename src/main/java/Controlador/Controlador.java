@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Entidades.Empleado;
-import Entidades.Proyecto;
+import Modelo.Empleado;
+import Modelo.Proyecto;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
