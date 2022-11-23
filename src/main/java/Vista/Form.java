@@ -1317,7 +1317,8 @@ public class Form extends javax.swing.JFrame {
                    txtFechaFin.setDate(new Date(this.tablaProyectos.getValueAt(fila, 3).toString()));
                    txtMonto.setText(this.tablaProyectos.getValueAt(fila, 4).toString());
                    int cod = Integer.parseInt(txtCodigo.getText());
-                   listarEmpleadosP(cod);
+                   Double mon = Double.parseDouble(this.tablaProyectos.getValueAt(fila, 4).toString());
+                 listarEmpleadosP(cod,mon);
 
                }
                if(boton.getName().equals("agregar")){
@@ -1399,7 +1400,7 @@ public class Form extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarEmpActionPerformed
 
-    public void listarEmpleadosP(int cod){
+    public void listarEmpleadosP(int cod, Double monto){
         tablaEmpleadosP.setDefaultRenderer(Object.class, new Render());
          
          Object[] nombres = {"Legajo","Empleados","Monto"};
@@ -1412,16 +1413,19 @@ public class Form extends javax.swing.JFrame {
                 return false;
             }
         };
-        int i=0;
         String val="%";
-          for(Empleado emp: obj.listarEmpleados(val)){
+        int i=0;
+        Double monInd = calcularMontoInd(cod,monto);
+        for(Empleado emp: obj.listarEmpleados(val)){
               if (emp.getProyecto() !=  null) {
                   if (emp.getProyecto().getCodProyecto() == cod) {
                   modelo.setValueAt(emp.getNdeLegajo(), i, 0);
                   modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
+                  modelo.setValueAt(monInd, i, 2);
+                  
                   
               }else{
-                  modelo.setValueAt(emp.getApellidos(), i, 0);
+                 // modelo.setValueAt(emp.getApellidos(), i, 0);
               }
               }
               
@@ -1432,6 +1436,29 @@ public class Form extends javax.swing.JFrame {
          // mostrarCantEmpleados();      
         tablaEmpleadosP.setModel(modelo);
     }
+    
+    public Double calcularMontoInd(int cod,Double monto){
+        Double montoInd=0d;
+        EmpleadoJpaController obj = new EmpleadoJpaController();
+
+        String val="%";
+        int contEmp = 0;
+        for(Empleado emp: obj.listarEmpleados(val)){
+              if (emp.getProyecto() !=  null) {
+                  if (emp.getProyecto().getCodProyecto() == cod) {
+                  contEmp++;
+                  
+                    }
+              }
+        }
+        
+        montoInd=monto/contEmp;
+        
+        
+        return montoInd;
+    }
+    
+    
     private void btnEditarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpActionPerformed
         // TODO add your handling code here:
         try{
@@ -1612,7 +1639,7 @@ public class Form extends javax.swing.JFrame {
                   modelo.setValueAt(emp.getCuit(), i, 0);
                   modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
               }else{
-                  modelo.setValueAt(emp.getApellidos(), i, 0);
+                  //modelo.setValueAt(emp.getApellidos(), i, 0);
               }
 
             i++; 
