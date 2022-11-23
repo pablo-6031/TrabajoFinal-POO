@@ -36,6 +36,7 @@ public class Form extends javax.swing.JFrame {
      */
     Double monto =0d;
     int cantEmp=0;
+    List<Empleado> listaEmpleado = new ArrayList<Empleado>();
     public Form() {
         this.setUndecorated(true);
         initComponents();
@@ -62,6 +63,9 @@ public class Form extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         panel1 = new java.awt.Panel();
         panel2 = new java.awt.Panel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanelMenu2 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -92,6 +96,7 @@ public class Form extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProyectos = new javax.swing.JTable();
@@ -99,7 +104,7 @@ public class Form extends javax.swing.JFrame {
         btnListarFecha = new javax.swing.JButton();
         txtBuscarProyecto = new javax.swing.JTextField();
         btnAgregarProyecto = new javax.swing.JButton();
-        btnEditarProyecto = new javax.swing.JButton();
+        btnAgregarEmp = new javax.swing.JButton();
         txtFechaIni = new com.toedter.calendar.JDateChooser();
         lblNombre8 = new javax.swing.JLabel();
         txtNombreProyecto = new javax.swing.JTextField();
@@ -118,7 +123,7 @@ public class Form extends javax.swing.JFrame {
         lblMontoTotal = new javax.swing.JLabel();
         txtHastaFecha = new com.toedter.calendar.JDateChooser();
         txtDesdeFecha = new com.toedter.calendar.JDateChooser();
-        btnEditarProyecto1 = new javax.swing.JButton();
+        btnEliminarEmp = new javax.swing.JButton();
         txtEmpSelLeg = new javax.swing.JTextField();
         txtEmpSelNom = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
@@ -206,9 +211,26 @@ public class Form extends javax.swing.JFrame {
         panel2.setBackground(new java.awt.Color(203, 243, 248));
         panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Gestion");
+        panel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Proyectos");
+        panel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("de");
+        panel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+
         jLabel3.setBackground(new java.awt.Color(255, 255, 0));
-        jLabel3.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\PABLO\\Documents\\NetBeansProjects\\TpFinal\\imagenes\\Rectángulo 3.png")); // NOI18N
+        jLabel3.setText("Gestion de Proyectos");
         panel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 120));
 
         jPanelMenu2.setBackground(new java.awt.Color(203, 243, 248));
@@ -413,7 +435,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,17 +448,27 @@ public class Form extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(54, 144, 167));
+        jLabel21.setText("Bienvenido");
+
         javax.swing.GroupLayout jPanelCentral1Layout = new javax.swing.GroupLayout(jPanelCentral1);
         jPanelCentral1.setLayout(jPanelCentral1Layout);
         jPanelCentral1Layout.setHorizontalGroup(
             jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                .addGap(239, 239, 239)
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentral1Layout.setVerticalGroup(
             jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentral1Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 469, Short.MAX_VALUE))
+                .addGap(192, 192, 192)
+                .addComponent(jLabel21)
+                .addGap(0, 232, Short.MAX_VALUE))
         );
 
         jPanelCentral.addTab("tab1", jPanelCentral1);
@@ -497,14 +529,14 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
-        btnEditarProyecto.setBackground(new java.awt.Color(0, 153, 153));
-        btnEditarProyecto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnEditarProyecto.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarProyecto.setText("Agregar");
-        btnEditarProyecto.setName("btnEditar"); // NOI18N
-        btnEditarProyecto.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarEmp.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregarEmp.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnAgregarEmp.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarEmp.setText("Agregar");
+        btnAgregarEmp.setName("btnEditar"); // NOI18N
+        btnAgregarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarProyectoActionPerformed(evt);
+                btnAgregarEmpActionPerformed(evt);
             }
         });
 
@@ -603,14 +635,14 @@ public class Form extends javax.swing.JFrame {
 
         txtDesdeFecha.setDateFormatString("dd/MM/yyyy");
 
-        btnEditarProyecto1.setBackground(new java.awt.Color(0, 153, 153));
-        btnEditarProyecto1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnEditarProyecto1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarProyecto1.setText("Eliminar");
-        btnEditarProyecto1.setName("btnEditar"); // NOI18N
-        btnEditarProyecto1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarEmp.setBackground(new java.awt.Color(0, 153, 153));
+        btnEliminarEmp.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnEliminarEmp.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarEmp.setText("Eliminar");
+        btnEliminarEmp.setName("btnEditar"); // NOI18N
+        btnEliminarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarProyecto1ActionPerformed(evt);
+                btnEliminarEmpActionPerformed(evt);
             }
         });
 
@@ -681,9 +713,9 @@ public class Form extends javax.swing.JFrame {
                                             .addComponent(txtEmpSelNom, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addGap(26, 26, 26)
-                                        .addComponent(btnEditarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnEditarProyecto1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)))
@@ -745,8 +777,8 @@ public class Form extends javax.swing.JFrame {
                             .addComponent(txtEmpSelNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEditarProyecto1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(572, 572, 572))
         );
@@ -1298,7 +1330,7 @@ public class Form extends javax.swing.JFrame {
                    
                   mostrarTablaEmpleadosP("%");
        
-                   
+
                }
                if(boton.getName().equals("del")){
                    int fila = tablaProyectos.getSelectedRow();
@@ -1315,7 +1347,7 @@ public class Form extends javax.swing.JFrame {
 /*
     }//GEN-LAST:event_tablaProyectosMouseClicked
 */
-    private void btnEditarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProyectoActionPerformed
+    private void btnAgregarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpActionPerformed
         // TODO add your handling code here:
         try{
             
@@ -1332,20 +1364,40 @@ public class Form extends javax.swing.JFrame {
             
             Controlador control = new Controlador();
             control.editarProyecto(pro);
-            EmpleadoJpaController obj = new EmpleadoJpaController();
             
+            
+            
+            
+            
+            
+            EmpleadoJpaController obj = new EmpleadoJpaController();
             String cuit=txtEmpSelLeg.getText();
             int codPro =Integer.parseInt(txtCodigo.getText());
-             
-            obj.actualizarEmpleados(cuit,codPro);
-                    
+        
+
+
+          for(Empleado emp: obj.listarEmpleados(cuit)){
+            emp.getCuit();
+            emp.getNombres();
+            emp.getApellidos();
+            emp.getFechaNacimiento();
+            emp.getNdeLegajo();
+            emp.getSueldo();
+            emp.setProyecto(pro);
+            control.editarUsuario(emp);
+            //listaEmpleado.add(emp);
+            //pro.setEmpleado(listaEmpleado.add(emp));
+        }
+
+            
+            mostrarTablaEmpleadosP(txtCodigo.getText());
             mostrarTablaProyecto("%");
            limpiarPro();
            
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
         }
-    }//GEN-LAST:event_btnEditarProyectoActionPerformed
+    }//GEN-LAST:event_btnAgregarEmpActionPerformed
 
     public void listarEmpleadosP(int cod){
         tablaEmpleadosP.setDefaultRenderer(Object.class, new Render());
@@ -1415,9 +1467,52 @@ public class Form extends javax.swing.JFrame {
         mostrarTablaProyectoFecha(new Date(desde),new Date(hasta));
     }//GEN-LAST:event_btnListarFechaActionPerformed
 
-    private void btnEditarProyecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProyecto1ActionPerformed
+    private void btnEliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarProyecto1ActionPerformed
+        try{
+            
+            Proyecto pro = Proyecto.getInstance();
+            pro.setCodProyecto(Integer.parseInt(txtCodigo.getText()));
+            pro.setNombre(txtNombreProyecto.getText());
+            pro.setMontoPres(Double.parseDouble(txtMonto.getText()));
+
+            SimpleDateFormat dFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String fechaIni = dFormat.format(txtFechaIni.getDate());
+            String fechaFin = dFormat.format(txtFechaFin.getDate());
+            pro.setFechaIni(new Date(fechaIni));
+            pro.setFechaFin(new Date(fechaFin));
+            
+            Controlador control = new Controlador();
+            control.editarProyecto(pro);
+            
+            
+            EmpleadoJpaController obj = new EmpleadoJpaController();
+            String cuit=txtEmpSelLeg.getText();
+            int codPro =Integer.parseInt(txtCodigo.getText());
+        
+
+          for(Empleado emp: obj.listarEmpleados(cuit)){
+            emp.getCuit();
+            emp.getNombres();
+            emp.getApellidos();
+            emp.getFechaNacimiento();
+            emp.getNdeLegajo();
+            emp.getSueldo();
+            emp.setProyecto(null);
+            control.editarUsuario(emp);
+            //listaEmpleado.add(emp);
+            //pro.setEmpleado(listaEmpleado.add(emp));
+        }
+
+            
+            mostrarTablaEmpleadosP(txtCodigo.getText());
+            mostrarTablaProyecto("%");
+           limpiarPro();
+           
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+        }
+    }//GEN-LAST:event_btnEliminarEmpActionPerformed
 
     private void tablaEmpleadosPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEmpleadosPMouseClicked
         // TODO add your handling code here:
@@ -1723,11 +1818,11 @@ public class Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarEmp;
     private javax.swing.JButton btnAgregarEmpleado;
     private javax.swing.JButton btnAgregarProyecto;
     private javax.swing.JButton btnEditarEmp;
-    private javax.swing.JButton btnEditarProyecto;
-    private javax.swing.JButton btnEditarProyecto1;
+    private javax.swing.JButton btnEliminarEmp;
     private javax.swing.JButton btnListarFecha;
     private java.awt.Button button1;
     private java.awt.Button button2;
@@ -1740,10 +1835,14 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

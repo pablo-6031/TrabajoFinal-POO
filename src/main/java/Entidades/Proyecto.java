@@ -101,6 +101,14 @@ public class Proyecto implements Serializable {
         this.montoPres = montoPres;
     }
 
+    public List<Empleado> getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(List<Empleado> empleado) {
+        this.empleado = empleado;
+    }
+
 
         
         
