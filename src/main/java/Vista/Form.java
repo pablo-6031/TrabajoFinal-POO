@@ -63,9 +63,6 @@ public class Form extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         panel1 = new java.awt.Panel();
         panel2 = new java.awt.Panel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanelMenu2 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -97,6 +94,9 @@ public class Form extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProyectos = new javax.swing.JTable();
@@ -126,6 +126,8 @@ public class Form extends javax.swing.JFrame {
         btnEliminarEmp = new javax.swing.JButton();
         txtEmpSelLeg = new javax.swing.JTextField();
         txtEmpSelNom = new javax.swing.JTextField();
+        lblNombre14 = new javax.swing.JLabel();
+        lblCantidadEP = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         btnAgregarEmpleado = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
@@ -211,27 +213,12 @@ public class Form extends javax.swing.JFrame {
         panel2.setBackground(new java.awt.Color(203, 243, 248));
         panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Gestion");
-        panel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
-
-        jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Proyectos");
-        panel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("de");
-        panel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
-
         jLabel3.setBackground(new java.awt.Color(255, 255, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\PABLO\\Documents\\NetBeansProjects\\TpFinal\\imagenes\\Rectángulo 3.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\PABLO\\Documents\\NetBeansProjects\\TpFinal\\imagenes\\logo.png")); // NOI18N
         jLabel3.setText("Gestion de Proyectos");
-        panel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 120));
+        panel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, -1));
 
         jPanelMenu2.setBackground(new java.awt.Color(203, 243, 248));
         jPanelMenu2.setToolTipText("Text");
@@ -368,7 +355,7 @@ public class Form extends javax.swing.JFrame {
 
         panel2.add(jPanelMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 200, 50));
 
-        panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 200, 540));
+        panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 570));
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1071, 63, -1, 52));
@@ -391,7 +378,7 @@ public class Form extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 855, Short.MAX_VALUE)
+                .addGap(0, 655, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -399,7 +386,7 @@ public class Form extends javax.swing.JFrame {
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        panel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 30));
+        panel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 690, 30));
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 0));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -435,7 +422,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,7 +437,19 @@ public class Form extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(54, 144, 167));
-        jLabel21.setText("Bienvenido");
+        jLabel21.setText("Bienvenido al sistema");
+
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("de");
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Gestion");
+
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(54, 144, 167));
+        jLabel23.setText("de gestion de proyectos");
 
         javax.swing.GroupLayout jPanelCentral1Layout = new javax.swing.GroupLayout(jPanelCentral1);
         jPanelCentral1.setLayout(jPanelCentral1Layout);
@@ -458,17 +457,39 @@ public class Form extends javax.swing.JFrame {
             jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelCentral1Layout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(jLabel21)
+                .addGroup(jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                        .addGroup(jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                                .addGap(965, 965, 965)
+                                .addComponent(jLabel16))
+                            .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(jLabel23)))
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel20))
+                    .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel21)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCentral1Layout.setVerticalGroup(
             jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentral1Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(192, 192, 192)
-                .addComponent(jLabel21)
-                .addGap(0, 232, Short.MAX_VALUE))
+                .addGroup(jPanelCentral1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCentral1Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel16)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel23)
+                        .addGap(0, 205, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentral1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel20)
+                        .addGap(196, 196, 196))))
         );
 
         jPanelCentral.addTab("tab1", jPanelCentral1);
@@ -654,6 +675,12 @@ public class Form extends javax.swing.JFrame {
         txtEmpSelNom.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtEmpSelNom.setName("txtCuit"); // NOI18N
 
+        lblNombre14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblNombre14.setText("Cantidad de Empleados :");
+
+        lblCantidadEP.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblCantidadEP.setText("0");
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -664,41 +691,19 @@ public class Form extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel11Layout.createSequentialGroup()
-                                    .addComponent(lblNombre8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtFechaIni, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel11Layout.createSequentialGroup()
-                                    .addComponent(lblNombre12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(btnListarFecha)
+                                .addComponent(lblNombre8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtFechaIni, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(lblNombre12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDesdeFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtHastaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(39, 39, 39))
+                                .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblNombre11)
-                                            .addComponent(lblNombre10)
-                                            .addComponent(lblNombre9))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNombreProyecto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnAgregarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBuscarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -717,8 +722,37 @@ public class Form extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)))
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(lblNombre14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblCantidadEP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)))
+                                .addGap(15, 15, 15))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAgregarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblNombre11)
+                                            .addComponent(lblNombre10)
+                                            .addComponent(lblNombre9))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombreProyecto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(txtDesdeFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtHastaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(btnListarFecha)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtBuscarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
@@ -755,19 +789,20 @@ public class Form extends javax.swing.JFrame {
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtDesdeFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnListarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHastaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHastaFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDesdeFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAgregarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAgregarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnListarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtBuscarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombre7)
                             .addComponent(lblMontoTotal))
@@ -779,8 +814,14 @@ public class Form extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(572, 572, 572))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre14)
+                            .addComponent(lblCantidadEP))))
+                .addGap(574, 574, 574))
         );
 
         lblNombre7.getAccessibleContext().setAccessibleName("Monto total:");
@@ -1108,7 +1149,7 @@ public class Form extends javax.swing.JFrame {
            limpiar();
            
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Error: "+e);
+            JOptionPane.showMessageDialog(null, "Error debe ingresar valores numericos --> "+e);
         }
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
     public void eliminarPro(int id){
@@ -1129,6 +1170,67 @@ public class Form extends javax.swing.JFrame {
             Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void mostrarPorFechas(Date fecha1,Date fecha2){
+
+        tablaProyectos.setDefaultRenderer(Object.class, new Render());
+         
+         Object[] nombres = {"Codigo","Nombre","Inicio","Fin","Monto","Mostrar","Agregar","Eliminar"};
+        TableModel modelo = new DefaultTableModel(nombres, 45);
+        
+        JButton btn1 = new JButton("Mostrar");
+        btn1.setName("mostrar");
+        JButton btn2 = new JButton("Agregar");
+        btn2.setName("agregar");
+        JButton btn3 = new JButton("Del");
+        btn3.setName("del");
+        ProyectoJpaController obj = new ProyectoJpaController()
+        
+        {
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        monto=0d;
+        SimpleDateFormat dFormat = new SimpleDateFormat("dd/MM/yyyy");
+        int i=0;
+        String val="%";
+          for(Proyecto pro: obj.listarProyectos(val)){
+              //if (pro.getFechaIni() >= dFormat.parse(fecha1) && pro.getFechaFin() <= dFormat.parse(fecha2)) {
+                  if (fecha1.before(pro.getFechaIni()) && fecha2.after(pro.getFechaFin())) {
+
+                      modelo.setValueAt(pro.getCodProyecto(), i, 0);
+            modelo.setValueAt(pro.getNombre(), i, 1);
+            
+            
+            String fechaIni = dFormat.format(pro.getFechaIni());
+            modelo.setValueAt(fechaIni, i, 2);
+            String fechaFin = dFormat.format(pro.getFechaFin());
+            modelo.setValueAt(fechaFin, i, 3);
+            modelo.setValueAt(pro.getMontoPres(), i, 4);
+            
+            modelo.setValueAt(btn1, i, 5);
+            modelo.setValueAt(btn2, i, 6);
+            modelo.setValueAt(btn3, i, 7);
+            monto+=pro.getMontoPres();
+                      
+                      
+              }
+              
+            i++; 
+        }
+          cantEmp = i;
+         mostrarMontoTotal();      
+        tablaProyectos.setModel(modelo);
+        
+        
+        
+    
+        
+        
+        
+ }
+    
     private void jPanelMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMenu1MouseClicked
         // TODO add your handling code here:
         jPanelCentral.setSelectedIndex(0);
@@ -1394,7 +1496,8 @@ public class Form extends javax.swing.JFrame {
             mostrarTablaEmpleadosP(txtCodigo.getText());
             mostrarTablaProyecto("%");
            limpiarPro();
-           
+           txtEmpSelLeg.setText("");
+           txtEmpSelNom.setText("");
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
         }
@@ -1415,6 +1518,7 @@ public class Form extends javax.swing.JFrame {
         };
         String val="%";
         int i=0;
+        int can=0;//cantidad de empleados en proyecto
         Double monInd = calcularMontoInd(cod,monto);
         for(Empleado emp: obj.listarEmpleados(val)){
               if (emp.getProyecto() !=  null) {
@@ -1423,7 +1527,7 @@ public class Form extends javax.swing.JFrame {
                   modelo.setValueAt(emp.getApellidos()+" "+emp.getNombres(), i, 1);
                   modelo.setValueAt(monInd, i, 2);
                   
-                  
+                  can++;
               }else{
                  // modelo.setValueAt(emp.getApellidos(), i, 0);
               }
@@ -1432,8 +1536,9 @@ public class Form extends javax.swing.JFrame {
 
             i++; 
         }
-          //cantEmp = i;
-         // mostrarCantEmpleados();      
+
+        String ca =String.valueOf(can);
+        lblCantidadEP.setText(ca);
         tablaEmpleadosP.setModel(modelo);
     }
     
@@ -1489,9 +1594,13 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         SimpleDateFormat dFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String desde = dFormat.format(txtDesdeFecha.getDate());
-        String hasta = dFormat.format(txtHastaFecha.getDate());
-        mostrarTablaProyectoFecha(new Date(desde),new Date(hasta));
+        Date fecha1 = txtDesdeFecha.getDate();
+        Date fecha2 = txtHastaFecha.getDate();
+        
+        mostrarPorFechas(fecha1,fecha2);
+        
+        
+        
     }//GEN-LAST:event_btnListarFechaActionPerformed
 
     private void btnEliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpActionPerformed
@@ -1535,7 +1644,8 @@ public class Form extends javax.swing.JFrame {
             mostrarTablaEmpleadosP(txtCodigo.getText());
             mostrarTablaProyecto("%");
            limpiarPro();
-           
+           txtEmpSelLeg.setText("");
+           txtEmpSelNom.setText("");
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
         }
@@ -1869,7 +1979,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1904,6 +2014,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblCantEmp;
+    private javax.swing.JLabel lblCantidadEP;
     private javax.swing.JLabel lblMenu1;
     private javax.swing.JLabel lblMontoTotal;
     private javax.swing.JLabel lblNombre1;
@@ -1911,6 +2022,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre11;
     private javax.swing.JLabel lblNombre12;
     private javax.swing.JLabel lblNombre13;
+    private javax.swing.JLabel lblNombre14;
     private javax.swing.JLabel lblNombre2;
     private javax.swing.JLabel lblNombre3;
     private javax.swing.JLabel lblNombre4;
